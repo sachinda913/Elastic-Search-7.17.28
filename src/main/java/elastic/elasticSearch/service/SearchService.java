@@ -3,13 +3,13 @@ package elastic.elasticSearch.service;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import org.elasticsearch.search.builder.SearchSourceBuilder;
 import org.springframework.stereotype.Service;
 
 import co.elastic.clients.elasticsearch.ElasticsearchClient;
+import co.elastic.clients.elasticsearch._types.SortOrder;
 import co.elastic.clients.elasticsearch._types.query_dsl.MatchQuery;
-import co.elastic.clients.elasticsearch._types.query_dsl.MultiMatchQuery;
 import co.elastic.clients.elasticsearch._types.query_dsl.Operator;
-import co.elastic.clients.elasticsearch._types.query_dsl.Query;
 import co.elastic.clients.elasticsearch.core.SearchRequest;
 import co.elastic.clients.elasticsearch.core.SearchResponse;
 import co.elastic.clients.elasticsearch.core.search.Hit;
@@ -47,8 +47,12 @@ public class SearchService {
             SearchRequest request = new SearchRequest.Builder() 
                     .index(Indices.Birth_index)      // -> get the index name
                     .query(q -> q.match(matchQuery)) // -> Applies the match query as the search condition
-                    .build();						 
-           
+                    .sort(s -> s
+                    		.field(f -> f
+                    				.field("date_of_birth") // -> Add sort field
+                    				.order(SortOrder.Asc))) // -> Add sort order ex: ASC/DESC
+                    .build();
+            
          // Executing the Search
             SearchResponse<EsBirthIndexProp> response = elasticsearchClient.search(request, EsBirthIndexProp.class);
 
