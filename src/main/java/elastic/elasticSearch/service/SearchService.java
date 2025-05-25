@@ -43,7 +43,8 @@ public class SearchService {
                     .fuzziness("AUTO") // -> Enables approximate matching
             		.operator(Operator.Or)); // Requires all terms to match -> set to "OR"  matches documents with either ex:john or smith
             
-            SearchRequest request = new SearchRequest.Builder() //Create the Search Request 
+          //Create the Search Request 
+            SearchRequest request = new SearchRequest.Builder() 
                     .index(Indices.Birth_index)      // -> get the index name
                     .query(q -> q.match(matchQuery)) // -> Applies the match query as the search condition
                     .build();						 
