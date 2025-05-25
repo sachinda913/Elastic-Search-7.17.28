@@ -13,12 +13,18 @@ public class ElasticConfig extends ElasticsearchConfiguration{
 	@Value("${elastic.search.url}")
 	private String elasticSearchURL;
 
+	@Value(value = "${elasticsearch.timeout.connection}")
+	private int connectionTimeOut;
+
+	@Value(value = "${elasticsearch.timeout.socket}")
+	private int socketTimeOut;
+	
 	@Override
 	public ClientConfiguration clientConfiguration() {
 		return ClientConfiguration.builder()
 				.connectedTo(elasticSearchURL)
-//				.withSocketTimeout(null)
-//				.withConnectTimeout(null)
+				.withSocketTimeout(socketTimeOut)
+				.withConnectTimeout(connectionTimeOut)
 				.build();
 	}
 

@@ -2,26 +2,36 @@ package elastic.elasticSearch.entity.elastic;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.elasticsearch.annotations.Document;
+import org.springframework.data.elasticsearch.annotations.Field;
 
 import elastic.elasticSearch.helper.Indices;
-import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
+
 import java.time.Instant;
 
-@Data
+
+@Getter
+@Setter
 @Document(indexName = Indices.Birth_index)
 public class EsBirthDetails {
 
     @Id
     private int id;
 
-    private String full_name;
+    @Field(name = "full_name")
+    private String fullName;
 
-    private Instant date_of_birth;
+    @Field(name = "date_of_birth")
+    private Instant dateOfBirth;
 
+    @Field(name = "gender")
     private String gender;
 
-    private Integer nic_number;
+    @Field(name = "nic_number")
+    private Integer nicNumber;
 
-    private Instant update_at;
+    @Field(name = "update_at")
+    private Instant updateAt;
 }
 

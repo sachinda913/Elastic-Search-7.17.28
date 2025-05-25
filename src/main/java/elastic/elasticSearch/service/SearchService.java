@@ -2,16 +2,42 @@ package elastic.elasticSearch.service;
 
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import org.elasticsearch.action.search.SearchRequest;
+import org.elasticsearch.action.search.SearchResponse;
+import org.elasticsearch.client.RequestOptions;
+import org.springframework.stereotype.Service;
 
-import elastic.elasticSearch.dto.BirthDetailsDto;
-import elastic.elasticSearch.entity.BirthCertificate;
+import co.elastic.clients.elasticsearch.ElasticsearchClient;
 
+import elastic.elasticSearch.dto.EsBirthIndexProp;
+import elastic.elasticSearch.dto.EsBirthSearchDTO;
+import elastic.elasticSearch.helper.Indices;
+
+@Service
 public class SearchService {
+	
+    private final ElasticsearchClient elasticsearchClient;
+    
+    public SearchService(ElasticsearchClient elasticsearchClient) {
+        this.elasticsearchClient = elasticsearchClient;
+    }
+    
+
+	public List<EsBirthIndexProp> search(EsBirthSearchDTO birthSearchDTO) {
 		
-	public List<BirthCertificate> searchEsBirth(BirthDetailsDto birthDetailsDto) {
-		
+		try {
+			
+		}catch(Exception e) {
+			
+		}
+
+	
+
 		return null;
+		
+		
 	}
+	
+
 
 }
