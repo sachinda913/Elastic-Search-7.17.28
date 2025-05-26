@@ -2,6 +2,7 @@ package elastic.elasticSearch.controller;
 
 import java.util.List;
 
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -13,20 +14,18 @@ import elastic.elasticSearch.service.SearchService;
 
 @RestController
 @RequestMapping("/matchQuery")
-public class MacthQueryController {
+public class MatchQueryController {
 	
 	private final SearchService searchService;
 	
-	public MacthQueryController(SearchService searchService) {
+	public MatchQueryController(SearchService searchService) {
 		this.searchService = searchService;		
 	}
 	
 	@PostMapping("/search")
-	public List<EsBirthIndexProp> search(@RequestBody EsBirthSearchDTO birthSearchDTO){
-		return searchService.search(birthSearchDTO);
-		
+	public ResponseEntity<List<EsBirthIndexProp>> search(@RequestBody EsBirthSearchDTO birthSearchDTO){
+        List<EsBirthIndexProp> results = searchService.matchQuerySearch(birthSearchDTO);
+        return ResponseEntity.ok(results);		
 	}
 	
-	
-
 }
