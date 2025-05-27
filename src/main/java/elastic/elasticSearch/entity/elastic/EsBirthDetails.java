@@ -13,7 +13,7 @@ import java.time.Instant;
 
 @Getter
 @Setter
-@Document(indexName = Indices.Birth_index)
+@Document(indexName = Indices.index_name)
 public class EsBirthDetails {
 
     @Id
