@@ -1,4 +1,4 @@
-# 🧾 Elasticsearch Search 7.17.28
+# 🧾 Logstash Integration with Elasticsearch 7.17.28
 
 This project implements a Spring Boot-based search service using **Elasticsearch Java API Client** to efficiently query Database records. It supports full-text search, partial search, filtering, pagination, and sorting.
 
@@ -47,6 +47,8 @@ Supports searching across **multiple fields simultaneously**:
 - Maven
   
 ---
+
+
 
 ## 🔗 Contact & Support
 For any issues, feel free to open an issue on GitHub or reach out via email at `sachinda.nirosh@gmail.com`.  
