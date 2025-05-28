@@ -7,7 +7,7 @@ import lombok.Getter;
 @Service
 public class EsBirthSearchDTO {
 
-	private String searchFields;
+	private String searchField;
 	
 	private String searchValue;
 	
