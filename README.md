@@ -1,4 +1,4 @@
-# 🧾 Elasticsearch Search 7.17.28 ( Release Date: February 25, 2025)
+# 🧾 Elasticsearch Search 7.17.28
 
 This project implements a Spring Boot-based search service using **Elasticsearch Java API Client** to efficiently query Database records. It supports full-text search, partial search, filtering, pagination, and sorting.
 
@@ -43,7 +43,7 @@ Supports searching across **multiple fields simultaneously**:
 - Java 17+
 - Spring Boot 3.4.4
 - Elasticsearch Java API Client (`co.elastic.clients`)
-- Elasticsearch 7.17.28
+- Elasticsearch 7.17.28 ( Release Date: February 25, 2025)
 - Maven
   
 ---
